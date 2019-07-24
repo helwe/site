@@ -32,6 +32,16 @@ def hello():
 
 @app.route('/math')
 def math():
-    number1="введите число"
-    
+    a="введите число"
+    if "a" in request.args:
+        a = "{}".format(request.args['a'])
+    b = ""
+    if "b" in request.args:
+        b = "{}".format(request.args['b'])
+    c=""
+    if "c" in request.args:
+        c = "{}".format(request.args['c'])
+    d=int(a)+int(b)+int(c)
+
+    return render_template('HTMLmath.html').format(a, b, c, d)
 app.run(debug=True)

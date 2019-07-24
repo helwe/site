@@ -24,24 +24,21 @@ def hello():
     cvv=""
     if "cvv" in request.args:
         cvv = "ваш cvv код, {}".format(request.args['cvv'])
-    a=open('credit card','wb')
-    a.write(number,exp_date,cvv)
-    a.close()
 
     return render_template('HTMLGREETING.html').format(number, exp_date, cvv)
-
 @app.route('/math')
 def math():
-    a="введите число"
+    a=""
     if "a" in request.args:
         a = "{}".format(request.args['a'])
-    b = ""
+    b=""
     if "b" in request.args:
         b = "{}".format(request.args['b'])
     c=""
+    d=0
     if "c" in request.args:
         c = "{}".format(request.args['c'])
-    d=int(a)+int(b)+int(c)
 
+        d = int(a) + int(b) + int(c)
     return render_template('HTMLmath.html').format(a, b, c, d)
 app.run(debug=True)
